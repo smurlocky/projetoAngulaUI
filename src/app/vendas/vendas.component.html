@@ -11,6 +11,6 @@ p-title="Incluir Pedido"
     </po-table>
     <po-divider/>
    <po-dynamic-form [p-fields]="Formfields"></po-dynamic-form>
-   <po-button>Incluir Pedido</po-button>
+   <po-button p-label="Adicionar" (p-click)="addItem()" p-type="primary">Incluir Pedido</po-button>
       
 </po-page-edit>
