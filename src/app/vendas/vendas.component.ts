@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { PoBreadcrumb, PoDynamicFormComponent, PoDynamicFormField, PoTableColumn } from '@po-ui/ng-components';
 
 
@@ -9,12 +10,17 @@ import { PoBreadcrumb, PoDynamicFormComponent, PoDynamicFormField, PoTableColumn
 })
 export class VendasComponent {
   @ViewChild(PoDynamicFormComponent, { static: true }) dynamicForm!: PoDynamicFormComponent;
-  onCancel() {
-    throw new Error('Method not implemented.');
+
+  constructor(public  router: Router){
   }
-  onSaveClick() {
-    throw new Error('Method not implemented.');
+
+  public breadcrumb: PoBreadcrumb = {
+    items:[
+      {label: 'Home', link:'/'},
+      {label: 'Pedidos', link:'/vendas'},
+    ]
   }
+
   columns: PoTableColumn[] = [
     { property: 'cod', label: 'Codigo', type: 'number' },
     { property: 'name', label: 'Nome', type: 'string' },
@@ -33,11 +39,17 @@ export class VendasComponent {
     { property: 'qtd', label: 'Quantidade', type: 'number', placeholder: 'Quantidade', required: true, gridColumns: 1 },
     { property: 'price', label: 'Preço', type: 'currency', format: 'BRL', required: true, gridColumns: 1 },
   ]
-  breadcrumb: PoBreadcrumb | undefined;
 
   addItem() {
     this.items.push(this.dynamicForm.form.value);
 
   }
 
+  onSaveClick() {
+    console.log(this.dynamicForm.form.value)
+  }
+
+  onCancel() {
+    this.router.navigateByUrl('vendas')
+  }
 }
