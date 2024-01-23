@@ -1,15 +1,16 @@
-<po-page-default p-title="AppName">
+<po-page-edit
+p-title="Incluir Pedido"
+[p-breadcrumb]="breadcrumb"
+(p-save)="onSaveClick()"
+(p-cancel)="onCancel()"
+>
 <po-divider/>
     <p> AppName vendas </p>
     <po-divider/>
     <po-table [p-columns]="columns" [p-items]="items">
     </po-table>
     <po-divider/>
-    <form (ngSubmit)="addItem()">
-        <po-input name="id" p-label="ID" [(ngModel)]="newItem.id" p-required p-type="number"></po-input>
-        <po-input name="name" p-label="Nome" [(ngModel)]="newItem.name"></po-input>
-        <po-input name="price" p-label="Preço" [(ngModel)]="newItem.price" p-required p-type="currency" p-format="BRL"></po-input>
-        <po-button p-label="Adicionar" (p-click)="addItem()" p-type="primary"></po-button>
-    </form>
+   <po-dynamic-form [p-fields]="Formfields"></po-dynamic-form>
+   <po-button>Incluir Pedido</po-button>
       
-</po-page-default>
+</po-page-edit>

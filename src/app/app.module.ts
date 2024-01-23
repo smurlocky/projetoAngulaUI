@@ -10,11 +10,13 @@ import { PoTableModule } from '@po-ui/ng-components';
 import { AppComponent } from './app.component';
 import { VendasComponent } from './vendas/vendas.component';
 import { PoBreadcrumbModule } from '@po-ui/ng-components';
+import { NovaVendaComponent } from './nova-venda/nova-venda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VendasComponent,
+    NovaVendaComponent,
   ],
   imports: [
     BrowserModule,
